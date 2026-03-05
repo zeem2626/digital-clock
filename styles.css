@@ -1,0 +1,71 @@
+/* styles.css */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  /* change this to your image path or full URL */
+  background-image: url("./asset/fox.jpg");
+  /* background-image: url("./asset/mountain-night.jpg"); */
+  /* background-image: url("./asset/mountain.jpg"); */
+  /* background-image: url("./asset/night-sky.jpg"); */
+  background-color: #000000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+
+  /* fallback color while image loads */
+
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+
+  /* ensure content sits above overlay */
+  position: relative;
+  overflow: hidden;
+}
+
+/* light black shadow (overlay) over the whole image */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(
+    0,
+    0,
+    0,
+    0.50
+  ); /* adjust opacity (0.0 - 1.0) for lighter/darker */
+  pointer-events: none; /* do not block interactions */
+  z-index: 0;
+}
+
+/* clock styling placed above overlay */
+.clock {
+  /* max-width: 40rem; */
+  /* max-height: 10rem; */
+  color: #9effdf;
+  margin: 9rem 0rem 0rem 5rem;
+  /* padding: 3rem; */
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  z-index: 1; /* align-items: baseline; */
+  gap: 0.6rem;
+  font-size: 12rem;
+  font-weight: 500;
+  /* letter-spacing: 0.5rem; */
+}
+
+/* AM/PM styling */
+.ampm {
+  font-size: clamp(0.9rem, 2.6vw, 2.2rem);
+  letter-spacing: 0.06rem;
+  font-weight: 700;
+  align-self: flex-end;
+  transform: translateY(-8%); /* visually balances with large time */
+}
