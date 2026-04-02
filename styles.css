@@ -5,89 +5,72 @@ body {
 }
 
 body {
-  /* change this to your image path or full URL */
-  background-image: url("./asset/fox.jpg");
-  /* background-image: url("./asset/mountain-night.jpg"); */
-  /* background-image: url("./asset/mountain.jpg"); */
-  /* background-image: url("./asset/night-sky.jpg"); */
   background-color: #000000;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   display: flex;
-  /* align-items: center; */
-  /* justify-content: center; */
-
-  /* fallback color while image loads */
-
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
 
-  /* ensure content sits above overlay */
   position: relative;
   overflow: hidden;
 }
 
-/* light black shadow (overlay) over the whole image */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  /* top:0; right:0; bottom:0; left:0 */
-  /* background: rgba(0, 0, 0, 1); */
-  background: rgba(0, 0, 0, 0.7);
-  /* adjust opacity (0.0 - 1.0) for lighter/darker */
+  background: rgba(0, 0, 0, 0.8);
   pointer-events: none;
-  /* do not block interactions */
   z-index: 0;
 }
 
-/* clock styling placed above overlay */
-.clock {
-  /* color: #bffff0; */
-  color: #9effdf;
+.update-image-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
 
+.clock {
+  color: #9effdf;
   margin: 14rem 0rem 0rem 5rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   z-index: 1;
   gap: 0.6rem;
-
-  /* use CSS variable for easy control and responsive math */
   font-size: 10rem;
   font-weight: 500;
 }
 
-/* row containing time and am/pm */
 .time-row {
   display: flex;
   align-items: baseline;
-  /* baseline aligns AM/PM with time nicely */
   gap: 0.6rem;
 }
 
-/* main time number */
-#time {
-  /* letter-spacing: 0.2rem; */
-}
-
-/* AM/PM styling */
 .ampm {
   font-size: clamp(0.9rem, 2.6vw, 2.2rem);
   letter-spacing: 0.2rem;
   font-weight: 700;
   transform: translateY(-8%);
-  /* visually balances with large time */
 }
 
-/* date styling: 1/4 the font-size of the time above */
 .date {
   display: block;
   margin: 5rem 0rem 0rem 5rem;
   font-weight: 400;
   font-size: 2rem;
-  /* slightly tighter letter spacing for the date */
   letter-spacing: 0.02rem;
   color: #92c4b3;
 }
