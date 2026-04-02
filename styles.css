@@ -1,4 +1,3 @@
-/* styles.css */
 html,
 body {
   height: 100%;
@@ -35,37 +34,60 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: 0; /* top:0; right:0; bottom:0; left:0 */
-  background: rgba(
-    0,
-    0,
-    0,
-    0.50
-  ); /* adjust opacity (0.0 - 1.0) for lighter/darker */
-  pointer-events: none; /* do not block interactions */
+  inset: 0;
+  /* top:0; right:0; bottom:0; left:0 */
+  /* background: rgba(0, 0, 0, 1); */
+  background: rgba(0, 0, 0, 0.7);
+  /* adjust opacity (0.0 - 1.0) for lighter/darker */
+  pointer-events: none;
+  /* do not block interactions */
   z-index: 0;
 }
 
 /* clock styling placed above overlay */
 .clock {
-  /* max-width: 40rem; */
-  /* max-height: 10rem; */
+  /* color: #bffff0; */
   color: #9effdf;
-  margin: 9rem 0rem 0rem 5rem;
-  /* padding: 3rem; */
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  z-index: 1; /* align-items: baseline; */
+
+  margin: 14rem 0rem 0rem 5rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  z-index: 1;
   gap: 0.6rem;
-  font-size: 12rem;
+
+  /* use CSS variable for easy control and responsive math */
+  font-size: 10rem;
   font-weight: 500;
-  /* letter-spacing: 0.5rem; */
+}
+
+/* row containing time and am/pm */
+.time-row {
+  display: flex;
+  align-items: baseline;
+  /* baseline aligns AM/PM with time nicely */
+  gap: 0.6rem;
+}
+
+/* main time number */
+#time {
+  /* letter-spacing: 0.2rem; */
 }
 
 /* AM/PM styling */
 .ampm {
   font-size: clamp(0.9rem, 2.6vw, 2.2rem);
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.2rem;
   font-weight: 700;
-  align-self: flex-end;
-  transform: translateY(-8%); /* visually balances with large time */
+  transform: translateY(-8%);
+  /* visually balances with large time */
+}
+
+/* date styling: 1/4 the font-size of the time above */
+.date {
+  display: block;
+  margin: 5rem 0rem 0rem 5rem;
+  font-weight: 400;
+  font-size: 2rem;
+  /* slightly tighter letter spacing for the date */
+  letter-spacing: 0.02rem;
+  color: #92c4b3;
 }
